@@ -89,7 +89,11 @@ export default {
       }
         }
     },
-
+    created(){
+        if(this.$route.hash!=''){
+            console.log("tokan data ",this.$route.hash.split('=')[1])
+        }
+    },
     methods: {
         signupUser(){
         const webAuth = new auth0.WebAuth(this.options);

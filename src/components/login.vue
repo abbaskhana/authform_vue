@@ -83,6 +83,11 @@ export default {
       }
         }
     },
+    created(){
+        if(this.$route.hash!=''){
+            console.log("tokan data ",this.$route.hash.split('=')[1])
+        }
+    },
     methods: {
         loginUser(){
         const webAuth = new auth0.WebAuth(this.options);
@@ -94,6 +99,7 @@ export default {
             realm: 'Username-Password-Authentication',
             redirectUri:'http://localhost:8080/',
             onRedirecting: function(done) {
+                // console.log("tokan data ",this.$route.query.page)
               console.log('On redirecting..');
               done();
             }
@@ -102,6 +108,7 @@ export default {
             console.error(err);
           }
         );
+        
         },
 
 
